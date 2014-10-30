@@ -3,7 +3,13 @@
   <name>CollapseGroupBoxWidget</name>
   <description>Collapse or expand all groupboxes within the parent of this widget.</description>
 
-  <icon></icon>
+  <icon>
+R0lGODlhDwAPAHAAACH5BAkAABQALAAAAAAPAA8AhMzVzJmqzJmqmZmAmcyqzP///8z//wAr 
+M2aAmczV/2aqmTNVM//V/zMrMzMrZv//zJmAzDMAMzNVZsyqmQAAAAAAAAAAAAAAAAAAAAAA 
+AAAAAAAAAAAAAAAAAAAAAAAAAAV3IBAIwhgMI0GtlFC8sPEeLIUUSYnuQ7m6ilhB9lqsAokA 
+rkQKIAQ9gGtQcMFijIZSGcQNrw7ljUp8JWQHF/D1KMu0BUhBaYg0GocGzkFoTIVeCUYtVV8F 
+AF4EEisJDTdmQwAABg01Smc4iACNNRMSdwsREg55ACEAOw== 
+</icon>
 
   <properties>
         <property key="collapseAllClass" type="string" required="true" defaultValue="CollapseAllGroupboxesButton">
@@ -16,6 +22,11 @@
             <category>Configuration</category>
             <description>Text to display in the collapse all button</description>
         </property>
+        <property key="collapseAllTabIndex" type="string" required="false">
+            <caption>Collapse all tab index</caption>
+            <category>Configuration</category>
+            <description>Tab index for the collapse all button</description>
+        </property>
         <property key="expandAllClass" type="string" required="true" defaultValue="ExpandAllGroupboxesButton">
             <caption>Expand all class</caption>
             <category>Configuration</category>
@@ -25,6 +36,11 @@
             <caption>Expand all caption</caption>
             <category>Configuration</category>
             <description>Text to display in the expand all button</description>
+        </property>
+        <property key="expandAllTabIndex" type="string" required="false">
+            <caption>Expand all tab index</caption>
+            <category>Configuration</category>
+            <description>Tab index for the expand all button</description>
         </property>
         <property key="groupboxClass" type="string" required="false">
             <caption>Groupbox class</caption>

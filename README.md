@@ -25,3 +25,6 @@ The widget wil show buttons to collapse and expand all groupboxes in the same pa
 
 If not all groupboxes must be included, set a class on all groupboxes that must be included.
 Specify the same class as Groupbox class on the widget. Note that the class does not need to exist in any CSS file. 
+
+Set the tabindex to -1 to prevent the buttons from receiving focus.
+ 

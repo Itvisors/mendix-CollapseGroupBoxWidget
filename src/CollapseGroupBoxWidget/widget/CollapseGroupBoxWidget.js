@@ -80,10 +80,10 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
 		'use strict';
         console.log('CollapseGroupBoxWidget - createChildNodes');
 
-        this._collapseAllButton = this._createButton(this.collapseAllCaption, this.collapseAllClass);
+        this._collapseAllButton = this._createButton(this.collapseAllCaption, this.collapseAllClass, this.collapseAllTabIndex);
         this.domNode.appendChild(this._collapseAllButton);
 
-        this._expandAllButton = this._createButton(this.expandAllCaption, this.expandAllClass);
+        this._expandAllButton = this._createButton(this.expandAllCaption, this.expandAllClass, this.expandAllTabIndex);
         this.domNode.appendChild(this._expandAllButton);
 
 	},
@@ -130,7 +130,7 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
         });
     },
 
-    _createButton: function (buttonCaption, buttonClass) {
+    _createButton: function (buttonCaption, buttonClass, tabIndex) {
         'use strict';
         var button;
 
@@ -139,6 +139,9 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
         dojo.addClass(button, 'btn mx-button btn-default ' + buttonClass);
         if (buttonCaption) {
             button.innerHTML = buttonCaption;
+        }
+        if (tabIndex) {
+            button.setAttribute('tabindex', tabIndex);
         }
         return button;
     }
