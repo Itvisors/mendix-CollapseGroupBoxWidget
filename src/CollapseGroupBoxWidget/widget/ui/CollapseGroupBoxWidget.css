@@ -1,0 +1,15 @@
+.CollapseAllGroupboxesButton,
+.ExpandAllGroupboxesButton {
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    padding-left: 22px;
+    height: 28px;
+}
+.CollapseAllGroupboxesButton {
+	background-image: url(CollapseGroupBoxWidget/widget/ui/CollapseAll.gif);
+}
+
+.ExpandAllGroupboxesButton {
+	background-image: url(CollapseGroupBoxWidget/widget/ui/ExpandAll.gif);
+    margin-left: 5px;
+}

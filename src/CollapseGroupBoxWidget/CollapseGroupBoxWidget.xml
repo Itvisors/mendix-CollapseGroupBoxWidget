@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
+  <name>CollapseGroupBoxWidget</name>
+  <description>Collapse or expand all groupboxes within the parent of this widget.</description>
+
+  <icon></icon>
+
+  <properties>
+        <property key="collapseAllClass" type="string" required="true" defaultValue="CollapseAllGroupboxesButton">
+            <caption>Collapse all class</caption>
+            <category>Configuration</category>
+            <description>CSS class of the collapse all button</description>
+        </property>
+        <property key="collapseAllCaption" type="translatableString" required="false">
+            <caption>Collapse all caption</caption>
+            <category>Configuration</category>
+            <description>Text to display in the collapse all button</description>
+        </property>
+        <property key="expandAllClass" type="string" required="true" defaultValue="ExpandAllGroupboxesButton">
+            <caption>Expand all class</caption>
+            <category>Configuration</category>
+            <description>CSS class of the expand all button</description>
+        </property>
+        <property key="expandAllCaption" type="translatableString" required="false">
+            <caption>Expand all caption</caption>
+            <category>Configuration</category>
+            <description>Text to display in the expand all button</description>
+        </property>
+        <property key="groupboxClass" type="string" required="false">
+            <caption>Groupbox class</caption>
+            <category>Configuration</category>
+            <description>If filled, change only groupboxes with this class.</description>
+        </property>
+	</properties>
+</widget>
+
