@@ -39,7 +39,7 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
 		'use strict';
 
         // postCreate
-        console.log('CollapseGroupBoxWidget - postCreate');
+        // console.log('CollapseGroupBoxWidget - postCreate');
 
 		// Load CSS ... automaticly from ui directory
 
@@ -59,7 +59,7 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
         'use strict';
 
         // postCreate
-        console.log('CollapseGroupBoxWidget - startup');
+        // console.log('CollapseGroupBoxWidget - startup');
     },
 
 	unintialize: function () {
@@ -78,7 +78,7 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
 	 // Create child nodes.
 	_createChildNodes : function () {
 		'use strict';
-        console.log('CollapseGroupBoxWidget - createChildNodes');
+        // console.log('CollapseGroupBoxWidget - createChildNodes');
 
         this._collapseAllButton = this._createButton(this.collapseAllCaption, this.collapseAllClass, this.collapseAllTabIndex);
         this.domNode.appendChild(this._collapseAllButton);
@@ -92,7 +92,7 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
     _setupEvents: function () {
         'use strict';
 
-        console.log('CollapseGroupBoxWidget - setup events');
+        // console.log('CollapseGroupBoxWidget - setup events');
 
         this._collapseAllButton.onclick = dojo.hitch(this, this._collapseAll);
         this._expandAllButton.onclick = dojo.hitch(this, this._expandAll);
@@ -115,7 +115,7 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
             isCollapsed,
             query;
 
-        console.log('CollapseGroupBoxWidget - Collapse all');
+        // console.log('CollapseGroupBoxWidget - Collapse all');
         query = '.mx-groupbox.mx-groupbox-collapsable';
         if (this.groupboxClass) {
             query += '.' + this.groupboxClass;
