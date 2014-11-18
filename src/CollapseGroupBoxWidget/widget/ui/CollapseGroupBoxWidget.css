@@ -1,14 +1,23 @@
+.CollapseAllGroupboxesButton:focus,
+.ExpandAllGroupboxesButton:focus,
+.CollapseAllGroupboxesButton:hover,
+.ExpandAllGroupboxesButton:hover,
 .CollapseAllGroupboxesButton,
 .ExpandAllGroupboxesButton {
+	background-color: transparent;
     background-position: 5px center;
     background-repeat: no-repeat;
     padding-left: 22px;
     height: 28px;
 }
+.CollapseAllGroupboxesButton:hover,
+.CollapseAllGroupboxesButton:focus,
 .CollapseAllGroupboxesButton {
 	background-image: url(CollapseGroupBoxWidget/widget/ui/CollapseAll.gif);
 }
 
+.ExpandAllGroupboxesButton:hover,
+.ExpandAllGroupboxesButton:focus,
 .ExpandAllGroupboxesButton {
 	background-image: url(CollapseGroupBoxWidget/widget/ui/ExpandAll.gif);
     margin-left: 5px;
