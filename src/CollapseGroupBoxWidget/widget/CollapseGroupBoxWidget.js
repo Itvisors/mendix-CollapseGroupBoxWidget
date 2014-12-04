@@ -62,7 +62,7 @@ dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widg
         // console.log('CollapseGroupBoxWidget - startup');
     },
 
-	unintialize: function () {
+	uninitialize: function () {
 		'use strict';
 	},
 
