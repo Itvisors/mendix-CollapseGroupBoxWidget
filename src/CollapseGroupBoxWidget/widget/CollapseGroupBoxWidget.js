@@ -14,136 +14,140 @@
 	Collapse or expand all groupboxes within the parent of this widget
 
 */
-dojo.provide('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget');
+(function () {
+    'use strict';
 
-dojo.declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ mxui.widget._WidgetBase ], {
+    require([
 
-	/**
-	 * Internal variables.
-	 * ======================
-	 */
+        'dojo/_base/declare', 'mxui/widget/_WidgetBase', 'dijit/_Widget',
+        'mxui/dom', 'dojo/dom', 'dojo/query', 'dojo/dom-class', 'dojo/_base/lang'
 
-    _collapseAllButton                      : null,
-    _expandAllButton                        : null,
+    ], function (declare, _WidgetBase, _Widget, domMx, dom, domQuery, domClass, lang) {
 
-	// Extra variables
+        // Declare widget.
+        return declare('CollapseGroupBoxWidget.widget.CollapseGroupBoxWidget', [ _WidgetBase, _Widget ], {
+
+            /**
+             * Internal variables.
+             * ======================
+             */
+
+            _collapseAllButton                      : null,
+            _expandAllButton                        : null,
+
+            // Extra variables
 
 
-	/**
-	 * Mendix Widget methods.
-	 * ======================
-	 */
+            /**
+             * Mendix Widget methods.
+             * ======================
+             */
 
-	// DOJO.WidgetBase -> PostCreate is fired after the properties of the widget are set.
-	postCreate: function () {
-		'use strict';
+            // DOJO.WidgetBase -> PostCreate is fired after the properties of the widget are set.
+            postCreate: function () {
 
-        // postCreate
-        // console.log('CollapseGroupBoxWidget - postCreate');
+                // postCreate
+                // console.log('CollapseGroupBoxWidget - postCreate');
 
-		// Load CSS ... automaticly from ui directory
+                // Load CSS ... automaticly from ui directory
 
-		// Setup widgets
-		this._setupWidget();
+                // Setup widgets
+                this._setupWidget();
 
-		// Create childnodes
-		this._createChildNodes();
+                // Create childnodes
+                this._createChildNodes();
 
-		// Setup events
-		this._setupEvents();
+                // Setup events
+                this._setupEvents();
 
-	},
+            },
 
-    // DOJO.WidgetBase -> Startup is fired after the properties of the widget are set.
-    startup: function () {
-        'use strict';
+            // DOJO.WidgetBase -> Startup is fired after the properties of the widget are set.
+            startup: function () {
 
-        // postCreate
-        // console.log('CollapseGroupBoxWidget - startup');
-    },
+                // postCreate
+                // console.log('CollapseGroupBoxWidget - startup');
+            },
 
-	uninitialize: function () {
-		'use strict';
-	},
+            uninitialize: function () {
+            },
 
-	/**
-	 * Extra setup widget methods.
-	 * ======================
-	 */
-	_setupWidget: function () {
-		'use strict';
+            /**
+             * Extra setup widget methods.
+             * ======================
+             */
+            _setupWidget: function () {
 
-	},
+            },
 
-	 // Create child nodes.
-	_createChildNodes : function () {
-		'use strict';
-        // console.log('CollapseGroupBoxWidget - createChildNodes');
+             // Create child nodes.
+            _createChildNodes : function () {
+                // console.log('CollapseGroupBoxWidget - createChildNodes');
 
-        this._collapseAllButton = this._createButton(this.collapseAllCaption, this.collapseAllClass, this.collapseAllTabIndex);
-        this.domNode.appendChild(this._collapseAllButton);
+                this._collapseAllButton = this._createButton(this.collapseAllCaption, this.collapseAllClass, this.collapseAllTabIndex);
+                this.domNode.appendChild(this._collapseAllButton);
 
-        this._expandAllButton = this._createButton(this.expandAllCaption, this.expandAllClass, this.expandAllTabIndex);
-        this.domNode.appendChild(this._expandAllButton);
+                this._expandAllButton = this._createButton(this.expandAllCaption, this.expandAllClass, this.expandAllTabIndex);
+                this.domNode.appendChild(this._expandAllButton);
 
-	},
+            },
 
-	// Attach events to newly created nodes.
-    _setupEvents: function () {
-        'use strict';
+            // Attach events to newly created nodes.
+            _setupEvents: function () {
 
-        // console.log('CollapseGroupBoxWidget - setup events');
+                // console.log('CollapseGroupBoxWidget - setup events');
 
-        this._collapseAllButton.onclick = dojo.hitch(this, this._collapseAll);
-        this._expandAllButton.onclick = dojo.hitch(this, this._expandAll);
+                this._collapseAllButton.onclick = lang.hitch(this, this._collapseAll);
+                this._expandAllButton.onclick = lang.hitch(this, this._expandAll);
 
-	},
+            },
 
-    _collapseAll: function (evt) {
-        'use strict';
-        this._processEvent(true);
-    },
+            _collapseAll: function (evt) {
+                this._processEvent(true);
+            },
 
-    _expandAll: function (evt) {
-        'use strict';
-        this._processEvent(false);
-    },
-    
-    _processEvent: function (isCollapseRequested) {
-        'use strict';
-        var
-            isCollapsed,
-            query;
+            _expandAll: function (evt) {
+                this._processEvent(false);
+            },
 
-        // console.log('CollapseGroupBoxWidget - Collapse all');
-        query = '.mx-groupbox.mx-groupbox-collapsable';
-        if (this.groupboxClass) {
-            query += '.' + this.groupboxClass;
-        }
-        dojo.query(query, this.domNode.parentElement).forEach(function (groupboxElement) {
-            isCollapsed = dojo.hasClass(groupboxElement, 'collapsed');
-            if (isCollapsed !== isCollapseRequested) {
-                dojo.query('h2.mx-groupbox-header', groupboxElement).forEach(function (headerElement) {
-                    headerElement.click();
+            _processEvent: function (isCollapseRequested) {
+                var
+                    isCollapsed,
+                    query;
+
+                // console.log('CollapseGroupBoxWidget - Collapse all');
+                query = '.mx-groupbox.mx-groupbox-collapsable';
+                if (this.groupboxClass) {
+                    query += '.' + this.groupboxClass;
+                }
+                domQuery(query, this.domNode.parentElement).forEach(function (groupboxElement) {
+                    isCollapsed = domClass.contains(groupboxElement, 'collapsed');
+                    if (isCollapsed !== isCollapseRequested) {
+                        domQuery('h2.mx-groupbox-header', groupboxElement).forEach(function (headerElement) {
+                            headerElement.click();
+                        });
+                    }
                 });
+            },
+
+            _createButton: function (buttonCaption, buttonClass, tabIndex) {
+                var button;
+
+                button = document.createElement('button');
+                button.setAttribute('type', 'button');
+                domClass.add(button, 'btn mx-button btn-default ' + buttonClass);
+                if (buttonCaption) {
+                    button.innerHTML = buttonCaption;
+                }
+                if (tabIndex) {
+                    button.setAttribute('tabindex', tabIndex);
+                }
+                return button;
             }
+
         });
-    },
+    });
 
-    _createButton: function (buttonCaption, buttonClass, tabIndex) {
-        'use strict';
-        var button;
+}());
 
-        button = document.createElement('button');
-        button.setAttribute('type', 'button');
-        dojo.addClass(button, 'btn mx-button btn-default ' + buttonClass);
-        if (buttonCaption) {
-            button.innerHTML = buttonCaption;
-        }
-        if (tabIndex) {
-            button.setAttribute('tabindex', tabIndex);
-        }
-        return button;
-    }
 
-});
