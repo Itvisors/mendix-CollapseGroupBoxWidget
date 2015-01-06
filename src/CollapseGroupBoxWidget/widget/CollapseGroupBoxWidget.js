@@ -116,7 +116,7 @@
                     query;
 
                 // console.log('CollapseGroupBoxWidget - Collapse all');
-                query = '.mx-groupbox.mx-groupbox-collapsable';
+                query = '.mx-groupbox.mx-groupbox-collapsible';
                 if (this.groupboxClass) {
                     query += '.' + this.groupboxClass;
                 }
