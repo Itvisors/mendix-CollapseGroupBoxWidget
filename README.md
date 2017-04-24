@@ -3,21 +3,21 @@ mendix-CollapseGroupBoxWidget
 
 Collapse/expand multiple groupbox widgets
 
-##Description
+## Description
 Provide the user with one button to collapse or expand many groupboxes at the same time.
 
-##Typical usage scenario
+## Typical usage scenario
 A page with many groupboxes and the user wants to collapse or expand them all at the same time.
 
-##Features and limitations
+## Features and limitations
 - The widget shows the collapse and expand buttons, which can be styled using CSS
 - Caption is translatable
 - Optionally, a groupbox class can be specified. Only groupboxes with that class will be included. 
 
-##Dependencies
-Mendix 5
+## Dependencies
+Mendix 6.10.2
 
-##Configuration
+## Configuration
 
 Place the widget in the same container or higher as the groupboxes that need to be collapsed or expanded.
 
